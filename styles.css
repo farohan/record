@@ -38,6 +38,15 @@ h1 {
     color: gold;
 }
 
+#stop {
+    background: tomato;
+}
+
+#stop:hover {
+    transform: scale(1.2);
+    color: white;
+}
+
 #video-box {
     margin: 2.5rem;
     display: flex;
