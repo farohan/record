@@ -38,6 +38,11 @@ h1 {
     color: gold;
 }
 
+#stop {
+    background: tomatored;
+    color: white;
+}
+
 #video-box {
     margin: 2.5rem;
     display: flex;
