@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    font-family:  'Lato', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, slateblue, teal);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+}
+
+#interface {
+    margin: auto;
+    width: 70vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.control {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background: rgb(2, 98, 167);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.control:hover {
+    transform: scale(1.2);
+    color: gold;
+}
+
+#video-box {
+    margin: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
