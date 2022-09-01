@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Record yourself (both video and audio) and be able to download your recording. Feel free to talk, sing, or listen to yourself.">
+    <meta name="keywords" content="video, audio, record, recording, download, free">
+    <link rel="stylesheet" href="styles.css">
+    <title>Record Yourself - Video & Audio</title>
+</head>
+<body>
+    <h1>Record Yourself - Video & Audio</h1>
+
+    <section id="interface">
+        <a id="download" style="display: none;">
+            <button class="control" type="button">Download Recording</button>
+        </a>
+        <button class="control" type="button" id="stop" disabled>Stop</button>
+        <button class="control" type="button" onclick="recordAudio()">Record Audio</button>
+        <button class="control" type="button" onclick="recordVideo()">Record Video</button>
+        <button class="control" type="button" onclick="recordScreen()">Record Screen</button>
+    </section>
+    <div id="video-box">
+        <video autoplay height="480" width="640" muted></video>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
