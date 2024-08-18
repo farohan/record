@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
 
 * {
-    font-family:  'Lato', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Exo 2', sans-serif; /* Updated to Exo 2 font */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: linear-gradient(45deg, slateblue, teal);
+    background: #121212; /* Dark background for a sleek look */
+    color: #e0e0e0; /* Light text color for contrast */
+    font-size: 0.875rem; /* Slightly smaller text overall */
 }
 
 h1 {
     text-align: center;
-    font-size: 2.5rem;
-    color: white;
+    font-size: 2rem; /* Reduced font size */
+    color: #e0e0e0; /* Light text color */
+    margin: 2rem 0; /* Margin to push the title away from the edges */
 }
 
 #interface {
@@ -20,36 +26,103 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem; /* Space between buttons */
 }
 
 .control {
-    font-size: 1.5rem;
-    padding: 1rem;
-    background: rgb(2, 98, 167);
-    color: white;
+    font-size: 1.25rem; /* Slightly smaller font size for buttons */
+    padding: 0.75rem 1.5rem;
+    background: #333; /* Dark button background */
+    color: #e0e0e0; /* Light text color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .control:hover {
-    transform: scale(1.2);
-    color: gold;
+    background: #444; /* Darker background on hover */
+    transform: scale(1.05);
 }
 
 #stop {
-    background: tomato;
+    background: #d9534f; /* Distinct red color for stop button */
 }
 
 #stop:hover {
-    transform: scale(1.2);
-    color: white;
+    background: #c9302c; /* Darker red on hover */
 }
 
 #video-box {
-    margin: 2.5rem;
+    margin: 2.5rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Black with opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #333; /* Dark background for modal */
+    margin: 5% auto;
+    padding: 30px; /* Increased padding for more space */
+    border: 1px solid #444;
+    border-radius: 8px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    color: #e0e0e0;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px; /* Added margin to separate from input */
+}
+
+.modal-content input {
+    width: calc(100% - 22px); /* Adjusted width for padding and borders */
+    padding: 12px; /* Increased padding for better input area */
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: #222;
+    color: #e0e0e0;
+}
+
+.modal-content button {
+    padding: 12px 24px; /* Increased padding for better button area */
+    background: #444;
+    border: none;
+    border-radius: 5px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover {
+    background: #555;
+}
+
+.close {
+    color: #e0e0e0;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
 }
