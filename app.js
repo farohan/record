@@ -1,4 +1,4 @@
-//Welcome to app.js!
+// Welcome to app.js!
 
 let shouldStop = false;
 let stopped = false;
@@ -6,6 +6,36 @@ let stopped = false;
 const videoElement = document.getElementsByTagName('video')[0];
 const downloadLink = document.getElementById('download');
 const stopButton = document.getElementById('stop');
+
+// Modal elements
+const modal = document.getElementById('filename-modal');
+const closeModal = document.querySelector('.modal .close');
+const saveFilenameButton = document.getElementById('save-filename');
+const filenameInput = document.getElementById('filename-input');
+
+// Show the modal
+function showModal(callback) {
+    modal.style.display = 'block';
+    saveFilenameButton.onclick = function () {
+        const filename = filenameInput.value.trim();
+        if (filename) {
+            callback(filename);
+            modal.style.display = 'none';
+        }
+    };
+}
+
+// Close the modal
+closeModal.onclick = function () {
+    modal.style.display = 'none';
+};
+
+// Click outside of modal closes it
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
 
 function startRecord() {
     $('.btn-info').prop('disabled', true);
@@ -16,7 +46,7 @@ function startRecord() {
 function stopRecord() {
     $('.btn-info').prop('disabled', false);
     $('#stop').prop('disabled', true);
-    $('#download').css('display', 'block')
+    $('#download').css('display', 'block');
 }
 
 const audioRecordConstraints = {
@@ -49,11 +79,11 @@ const handleRecord = function({stream, mimeType}) {
             type: mimeType
         });
         recordedChunks = [];
-        const filename = window.prompt('Enter file name:');
-        downloadLink.href = URL.createObjectURL(blob);
-        downloadLink.download = `${filename || 'recording'}.webm`;
-        stopRecord();
-        videoElement.srcObject = null;
+        showModal(function(filename) {
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `${filename || 'recording'}.webm`;
+            downloadLink.click(); // Automatically trigger the download
+        });
     };
 
     mediaRecorder.start(200);
@@ -126,6 +156,6 @@ async function recordScreen() {
     } else {
         stream = displayStream;
         handleRecord({stream, mimeType});
-    };
+    }
     videoElement.srcObject = stream;
 }
